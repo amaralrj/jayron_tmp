@@ -1,6 +1,8 @@
 # coding: utf-8
+from django.core.urlresolvers import reverse as r
 from django.test import TestCase
 from eventex.subscriptions.models import Subscription
+
 
 
 class DetailTest(TestCase):
@@ -9,7 +11,7 @@ class DetailTest(TestCase):
             name='Henrique Bastos', cpf='12345678901', email='henrique@bastos.net',
             phone='21-96186180'
         )
-        self.resp = self.client.get('/inscricao/%d/' % s.pk)
+        self.resp = self.client.get(r('subscriptions:detail', args=[s.pk]))
 
     def test_get(self):
         'GET /inscricao/1/ should return status 200.'
@@ -31,5 +33,5 @@ class DetailTest(TestCase):
 
 class DetailNotFound(TestCase):
     def test_not_found(self):
-        response = self.client.get('/inscricao/0/')
+        response = self.client.get(r('subscriptions:detail', args=[0]))
         self.assertEqual(404, response.status_code)

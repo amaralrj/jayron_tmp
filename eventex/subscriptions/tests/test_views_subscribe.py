@@ -1,11 +1,13 @@
+# coding: utf-8
 from django.test import TestCase
+from django.core.urlresolvers import reverse as r
 from eventex.subscriptions.forms import SubscriptionForm
 from eventex.subscriptions.models import Subscription
 
 
 class SubscribeTest(TestCase):
     def setUp(self):
-        self.resp = self.client.get('/inscricao/')
+        self.resp = self.client.get(r('subscriptions:subscribe'))
 
     def test_get(self):
         # 'GET /inscricao/ must return status code 200.'
@@ -32,6 +34,10 @@ class SubscribeTest(TestCase):
         form = self.resp.context['form']
         self.assertIsInstance(form, SubscriptionForm)
 
+    def test_paid_default_value_is_False(self):
+        'By default paid must be False.'
+        self.assertEqual(False, self.obj.paid)
+
 
 class SubscribePostTest(TestCase):
     def setUp(self):
@@ -39,7 +45,7 @@ class SubscribePostTest(TestCase):
             name='Henrique Bastos', cpf='12345678901',
             email='henrique@bastos.net', phone='21-96186180'
         )
-        self.resp = self.client.post('/inscricao/', data)
+        self.resp = self.client.post(r('subscriptions:subscribe'), data)
 
     def test_post(self):
         'Valid POST should redirect to /inscricao/1/'
@@ -56,7 +62,7 @@ class SubscribeInvalidPostTest(TestCase):
             name='Henrique Bastos', cpf='000000000012',
             email='henrique@bastos.net', phone='21-96186180'
         )
-        self.resp = self.client.post('/inscricao/', data)
+        self.resp = self.client.post(r('subscriptions:subscribe'), data)
 
     def test_post(self):
         'Invalid POST should not redirect.'
