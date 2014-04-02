@@ -1,6 +1,6 @@
 # coding: utf-8
 from django.test import TestCase
-from eventex.subscriptions.admin import SubscriptionAdmin, Subscription, admin
+from src.subscriptions.admin import SubscriptionAdmin, Subscription, admin
 from mock import Mock
 
 

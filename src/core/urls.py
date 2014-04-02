@@ -3,6 +3,6 @@ from django.conf.urls import patterns, include, url
 
 
 urlpatterns = patterns(
-    'eventex.core.views',
+    'src.core.views',
     url(r'^$', 'home', name='home'),
 )

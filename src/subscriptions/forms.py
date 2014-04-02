@@ -2,7 +2,7 @@
 
 # Django
 from django import forms
-from eventex.subscriptions.models import Subscription
+from src.subscriptions.models import Subscription
 from django.utils.translation import ugettext as _
 from django.core.exceptions import ValidationError
 from django.core.validators import EMPTY_VALUES

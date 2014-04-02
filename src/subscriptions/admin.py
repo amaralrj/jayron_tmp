@@ -1,6 +1,6 @@
 # coding: utf-8
 from django.contrib import admin
-from eventex.subscriptions.models import Subscription
+from src.subscriptions.models import Subscription
 from django.utils.datetime_safe import datetime
 from django.utils.translation import ungettext, ugettext as _
 

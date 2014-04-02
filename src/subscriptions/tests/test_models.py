@@ -8,7 +8,7 @@ from django.db import IntegrityError
 from django.test import TestCase
 
 # Project
-from eventex.subscriptions.models import Subscription
+from src.subscriptions.models import Subscription
 
 
 class SubscriptionTest(TestCase):

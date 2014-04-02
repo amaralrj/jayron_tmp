@@ -1,6 +1,6 @@
 # coding: utf-8
 """
-Django settings for eventex project.
+Django settings for src project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -18,6 +18,7 @@ BASE_DIR = Path(__file__).parent
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
+
 SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -38,8 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'south',
-    'eventex.core',
-    'eventex.subscriptions',
+    'src.core',
+    'src.subscriptions',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -51,9 +52,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'eventex.urls'
+ROOT_URLCONF = 'src.urls'
 
-WSGI_APPLICATION = 'eventex.wsgi.application'
+WSGI_APPLICATION = 'src.wsgi.application'
 
 
 # Database

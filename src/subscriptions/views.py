@@ -6,8 +6,8 @@ from django.shortcuts import render
 from django.shortcuts import get_object_or_404
 
 # Project
-from eventex.subscriptions.models import Subscription
-from eventex.subscriptions.forms import SubscriptionForm
+from src.subscriptions.models import Subscription
+from src.subscriptions.forms import SubscriptionForm
 
 
 def subscribe(request):
