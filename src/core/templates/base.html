@@ -1,24 +1,85 @@
-<!DOCTYPE HTML PUBLIC "-­‐//W3C//DTD HTML 4.01//EN">
-<html>
-    <head>
-        <title>EventeX</title>
-        <link type="text/css" href="{{ STATIC_URL }}css/style.css" rel="stylesheet" media="screen"/>
-    </head>
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Estatística Social</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="{{ STATIC_URL }}css/bootstrap.css" rel="stylesheet">
+
+    <!-- Add custom CSS here -->
+    <link href="{{ STATIC_URL }}css/business-casual.css" rel="stylesheet">
+</head>
+
 <body>
-    <div id="page">
-        <div id="header">
-        ...
+
+    <div class="brand">Estatística Social</div>
+    <div class="address-bar">Lapa | Av. Gomes Freire 788| Rio de Janeiro, RJ - 20231-015 | 21.2508.9622</div>
+
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">Estatística Social</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="{% ifequal current_url "home" %}active{% endifequal %}"><a href="{% url "core:home" %}">Página Principal</a>
+                    </li>
+                    <li class="{% ifequal current_url "quem-somos" %}active{% endifequal %}"><a href="{% url "core:quem-somos"%}">Quem Somos</a>
+                    </li>
+                    <li class="{% ifequal current_url "solucoes" %}active{% endifequal %}"><a href="solution.html">Soluções</a>
+                    </li>
+                    <li class="{% ifequal current_url "projetos" %}active{% endifequal %}"><a href="project.html">Projetos</a>
+                    </li>
+                    <li class="{% ifequal current_url "contato" %}active{% endifequal %}"><a href="contact.html">Contato</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-        <hr>
-        <div id="content">
+        <!-- /.container -->
+    </nav>
+
+    <div class="container">
             {% block content %}
-            {% endblock content %}
-        </div>
-    ...
+            {% endblock content %} 
     </div>
 
-    <!-- <img src="{{ STATIC_URL }}img/logo.png" /> -->
-    <!-- <h1>Bem&#45;vindo ao EventeX!</h1> -->
-    <!-- <p>O evento mais sensacional do ano depois do Dev in Rio!</p> -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p>Copyright &copy; Estatística Social 2014</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="{{ STATIC_URL }}js/jquery-1.10.2.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.js"></script>
+    <script>
+    // Activates the Carousel
+    $('.carousel').carousel({
+        interval: 5000
+    })
+    </script>
+
 </body>
+
 </html>
+
+
